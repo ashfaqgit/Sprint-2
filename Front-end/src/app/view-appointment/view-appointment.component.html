@@ -1,0 +1,24 @@
+<div *ngIf="errorMsg != undefined" class="text-centre text-danger">{{errorMsg}}</div>
+
+<table class="table table-primary table-hover col-md-8 mx-auto mt-3" *ngIf="errorMsg==undefined">
+  <thead class="thead-dark">
+      <th>Date</th>
+      <th>Centre Name</th>
+      <th>Test Name</th>
+      <th>Patient Name</th>
+      <th>Test Fee</th>
+      <th>Contact Number</th>
+  </thead>
+   
+<tbody>
+  <tr *ngFor ="let apmt of appointments">
+    <td>{{apmt.slot.slotDate}}</td> 
+    <td>{{apmt.slot.diagnosisTest.diagnosisCentre.centreName}}</td>  
+    <td>{{apmt.slot.diagnosisTest.checkup.testName}}</td> 
+    <td>{{apmt.patientName}}</td>
+    <td>{{apmt.slot.amt}}</td>
+    <td>{{apmt.userContactNum}}</td>
+  </tr>
+</tbody>
+
+</table>

@@ -1,0 +1,35 @@
+<div *ngIf="errormsg != undefined">{{errormsg}} </div>
+<div class="table-responsive-sm mw-auto p-auto jumbotron-fluid">
+  <table class="table table-primary  table-bordered table-hover col-md-8 mx-auto mt-3" *ngIf ="errormsg== undefined">
+    <thead class="thead-dark">
+        <th>Slot ID</th>
+        <th>Slot Date</th>
+        <th>No Of Appointments</th>
+        <th>Centre Name</th>
+        <th>Test Name</th>
+        <th>Area</th>
+        <th>City</th>
+        <th>Phone no</th>
+        <th>Add/View Appointment</th>
+    </thead>
+    <tbody>
+    <tr *ngFor ="let slot of slots">
+      <td>{{slot.testSlotId}}</td>
+      <td>{{slot.slotDate}}</td>
+      <td>{{slot.numOfApp }}</td>
+      <td>{{slot.diagnosisTest.diagnosisCentre.centreName}}</td>
+      <td>{{slot.diagnosisTest.checkup.testName}}</td>
+      <td>{{slot.diagnosisTest.diagnosisCentre.address}}</td>
+      <td>{{slot.diagnosisTest.diagnosisCentre.city}}</td>
+      <td>{{slot.diagnosisTest.diagnosisCentre.contact}}</td>
+      <td>
+        <a class="btn btn-outline-success" routerLink="/addappointment/{{slot.testSlotId}}
+                                          /{{slot.diagnosisTest.diagnosisCentre.contact}}">AddAppointment</a><br><br>
+        <a class="btn btn-outline-success" routerLink="/getappointment/{{slot.testSlotId}}">ViewAppointment</a>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+  
+  
