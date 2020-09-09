@@ -1,0 +1,24 @@
+<div *ngIf="errorMsg != undefined" class="text-centre text-danger">{{errorMsg}}</div>
+
+<table class="table table-primary table-hover col-md-8 mx-auto mt-3" *ngIf="errorMsg==undefined">
+  <thead class="thead-dark">
+      <th>Test Id</th>
+      <th>Test Name</th>
+     <th>Test Description</th>
+     <th>Centre Name</th>
+  </thead>
+   
+<tbody>
+  <tr *ngFor ="let t of tests">
+    <td>{{t.checkup.testId}}</td> 
+    <td>{{t.checkup.testName}}</td>  
+    <td>{{t.checkup.testDesc}}</td>
+    <td>{{t.diagnosisCentre.centreName}}</td>
+    
+    <td><a routerLink="/viewslots/{{t.diagnosisTestId}}">View Slots</a></td> 
+    
+  </tr>
+</tbody>
+
+</table>
+<p>viewtests works!</p>

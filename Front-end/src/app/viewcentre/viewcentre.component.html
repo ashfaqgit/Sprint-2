@@ -1,0 +1,26 @@
+<div *ngIf="errorMsg != undefined" class="text-centre text-danger">{{errorMsg}}</div>
+<input type="text" [(ngModel)]="searchstr"/>
+<table class="table table-primary table-hover col-md-8 mx-auto mt-3" *ngIf="errorMsg==undefined">
+  <thead class="thead-dark">
+      <th>Centre Id</th>
+      <th>Centre Name</th>
+      <th>Address</th>
+      <th>Area</th>
+      <th>City</th>
+      <th>Contact Number</th>
+      <th>View Tests</th>
+  </thead>
+   
+<tbody>
+  <tr *ngFor ="let c of centres | searchcentre:searchstr">
+    <td>{{c.centreId}}</td> 
+    <td>{{c.centreName}}</td>  
+    <td>{{c.address}}</td> 
+    <td>{{c.area}}</td> 
+    <td>{{c.city}}</td>
+    <td>{{c.contact}}</td>  
+    <td><a routerLink="/gettests/{{c.centreId}}">View Test</a></td> 
+  </tr>
+</tbody>
+
+</table>

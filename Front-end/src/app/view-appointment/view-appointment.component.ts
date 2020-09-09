@@ -9,12 +9,13 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./view-appointment.component.css']
 })
 export class ViewAppointmentComponent implements OnInit {
-contactNo:string;
-  errorMsg:string;
-   appointments:any=[];
- constructor(private diagnosisService:DiagnosisService, private route:ActivatedRoute) {}
+    
+    contactNo:string;
+    errorMsg:string;
+    appointments:any=[];
+   constructor(private diagnosisService:DiagnosisService, private route:ActivatedRoute) {}
   
-ngOnInit(){
+   ngOnInit(){
 
           this.route.paramMap.subscribe(
             params=>{let slotId= params.get("slotid");
